@@ -315,26 +315,51 @@
             </div>
         </div>
     </section>
+    <section id="certifications">
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>Microsoft Azure AI Fundamentals</h3>
+                    <p>Completed Microsoft Azure AI Fundamentals certification, covering core AI concepts and Azure services for building AI solutions.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Data Science Fundamentals</h3>
+                    <p>Completed Data Science Fundamentals certification, focusing on data analysis, visualization, and basic machine learning concepts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="skills">
         <div class="container">
             <h2>Skills</h2>
             <div class="skills">
                 <div class="skill-category">
-                    <h3>Languages</h3>
+                    <h3>Programming Languages</h3>
                     <div class="skill-list">
                         <span class="skill-item">Python</span>
                         <span class="skill-item">Java</span>
-                        <span class="skill-item">SQL</span>
-                        <span class="skill-item">HTML</span>
+                        <span class="skill-item">C++</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Tools</h3>
+                    <h3>Web Skills & Tools</h3>
                     <div class="skill-list">
-                        <span class="skill-item">Canva</span>
-                        <span class="skill-item">Excel</span>
-                        <span class="skill-item">Word</span>
-                        <span class="skill-item">PowerPoint</span>
+                        <span class="skill-item">HTML</span>
+                        <span class="skill-item">CSS</span>
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">Bootstrap</span>
+                        <span class="skill-item">Git</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Core Fundamentals</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Computer Networks</span>
+                        <span class="skill-item">DBMS</span>
+                        <span class="skill-item">OOPS</span>
+                        <span class="skill-item">DSA</span>
                     </div>
                 </div>
             </div>
@@ -352,6 +377,19 @@
             <p><strong>Phone:</strong> 6381501099</p>
             <p><strong>Email:</strong> <a href="mailto:preethi2451@gmail.com">preethi2451@gmail.com</a></p>
             <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/preethi-23-balasubramaniam" target="_blank">Preethi Balasubramaniam</a></p>
+
+            <div style="max-width:700px;margin:2rem auto;text-align:left;">
+                <h3>Send me a message</h3>
+                <form id="contactForm" onsubmit="sendContactMail(event)">
+                    <label for="visitorEmail">Your Email</label><br>
+                    <input id="visitorEmail" type="email" required placeholder="you@example.com" style="width:100%;padding:0.6rem;margin:0.5rem 0;border-radius:6px;border:1px solid #ccc;">
+
+                    <label for="visitorMessage">Message</label><br>
+                    <textarea id="visitorMessage" required placeholder="Write your message..." rows="6" style="width:100%;padding:0.6rem;margin:0.5rem 0;border-radius:6px;border:1px solid #ccc;"></textarea>
+
+                    <button type="submit" style="background:#3498db;color:#fff;padding:0.6rem 1.2rem;border:none;border-radius:6px;cursor:pointer;">Send</button>
+                </form>
+            </div>
         </div>
     </section>
     <footer>
@@ -417,7 +455,20 @@
         window.addEventListener('load', () => {
             setTimeout(typeWriter, 1000);
         });
-    </script>
+        // Contact form handler: open user's email client with the message
+        function sendContactMail(e) {
+            e.preventDefault();
+            const visitorEmail = document.getElementById('visitorEmail').value.trim();
+            const message = document.getElementById('visitorMessage').value.trim();
+            if (!visitorEmail || !message) {
+                alert('Please enter your email and a message.');
+                return;
+            }
+            const to = 'preethi2451@gmail.com';
+            const subject = encodeURIComponent('Portfolio Contact from ' + visitorEmail);
+            const body = encodeURIComponent(message + '\n\nFrom: ' + visitorEmail);
+            window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+        }
     </script>
 </body>
 </html>
